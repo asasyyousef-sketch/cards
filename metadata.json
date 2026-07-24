@@ -1,0 +1,6 @@
+{
+  "name": "StudySmarter Flashcards",
+  "description": "An interactive Arabic/English study flashcard application powered by spaced repetition learning, German Article (der/die/das) tests, audio speech pronunciation, and Pixabay image integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

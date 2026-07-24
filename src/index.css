@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Cairo", "Inter", sans-serif;
+
+  /* Cognitive Flow Theme Colors */
+  --color-primary: #004ac6;
+  --color-primary-container: #2563eb;
+  --color-on-primary: #ffffff;
+  --color-surface: #e9f2ff;
+  --color-surface-bright: #edf4fe;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #d9e8ff;
+  --color-surface-container: #c6ddff;
+  --color-surface-container-high: #b1d0fe;
+  --color-surface-container-highest: #9ebefc;
+  --color-on-surface: #081628;
+  --color-on-surface-variant: #344256;
+  --color-inverse-surface: #112239;
+  --color-inverse-on-surface: #e5efff;
+  --color-outline: #627289;
+  --color-outline-variant: #a9bedb;
+  --color-secondary-container: #cfdef1;
+  --color-on-secondary-container: #3a4b61;
+  
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* Custom Radii for the Tactile Feel */
+  --radius-sm: 0.25rem;
+  --radius-DEFAULT: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
+html {
+  font-size: 12.65px; /* Scaled up by 15% from previous 11px as requested */
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+}
+
+.shadow-elevation-1 {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.shadow-elevation-3 {
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+}
+
+/* 3D Flip Card animations */
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Night Mode Overrides for Review Session - Slate / Steel Blue Theme (VS Code Dark+ inspired) */
+.review-night-mode {
+  background-color: #0f172a !important;
+  color: #e2e8f0 !important;
+  --color-surface: #0f172a;
+  --color-surface-bright: #0f172a;
+  --color-surface-container-lowest: #1e293b;
+  --color-surface-container-low: #182232;
+  --color-surface-container: #1e293b;
+  --color-surface-container-high: #283548;
+  --color-surface-container-highest: #334155;
+  --color-on-surface: #e2e8f0;
+  --color-on-surface-variant: #94a3b8;
+}
+
+/* 1. Canvas / Main Page Background */
+.review-night-mode .bg-surface-bright,
+.review-night-mode .bg-surface,
+.review-night-mode.bg-slate-950,
+.review-night-mode {
+  background-color: #0f172a !important;
+}
+
+/* Header & Footer Bars */
+.review-night-mode header,
+.review-night-mode footer,
+.review-night-mode .border-t,
+.review-night-mode .border-b {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+  color: #e2e8f0 !important;
+}
+
+.review-night-mode header span,
+.review-night-mode header div,
+.review-night-mode header p {
+  color: #e2e8f0 !important;
+}
+
+/* 2. Elements, Flashcards & Surfaces */
+.review-night-mode .flip-card-front,
+.review-night-mode .flip-card-back,
+.review-night-mode .bg-surface-container-lowest,
+.review-night-mode div.bg-white,
+.review-night-mode .bg-surface-container {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #e2e8f0 !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 0 1px 1px rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Secondary Containers & Inner Card Elements - Transparent to match card background */
+.review-night-mode .bg-slate-50,
+.review-night-mode .bg-slate-100,
+.review-night-mode .bg-surface-container-low,
+.review-night-mode .bg-surface-container-high,
+.review-night-mode .flip-card-front div,
+.review-night-mode .flip-card-back div {
+  background-color: transparent !important;
+  color: #e2e8f0 !important;
+  border-color: #2e3d52 !important;
+}
+
+/* Action Toolbar Floating Box */
+.review-night-mode .bg-surface-container-low\/60 {
+  background-color: #131c2a !important;
+  border-color: #2a3a50 !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* 3. Buttons & Interactive Controls */
+.review-night-mode button.bg-white,
+.review-night-mode button.bg-slate-50,
+.review-night-mode button.bg-slate-100,
+.review-night-mode .grid button {
+  background-color: #252e3f !important;
+  color: #e2e8f0 !important;
+  border-color: #334155 !important;
+}
+
+.review-night-mode button.bg-white:hover,
+.review-night-mode button.bg-slate-50:hover,
+.review-night-mode button.bg-slate-100:hover,
+.review-night-mode .grid button:hover {
+  background-color: #2d3b50 !important;
+  border-color: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+/* Primary Action Buttons */
+.review-night-mode button.bg-primary,
+.review-night-mode .bg-primary {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+/* 4. Typography & Text Hierarchy */
+.review-night-mode .text-slate-900,
+.review-night-mode .text-slate-800,
+.review-night-mode .text-slate-700,
+.review-night-mode .text-slate-600,
+.review-night-mode .text-on-surface {
+  color: #e2e8f0 !important;
+}
+
+.review-night-mode .text-slate-500,
+.review-night-mode .text-slate-400,
+.review-night-mode .text-on-surface-variant {
+  color: #94a3b8 !important;
+}
+
+/* Borders Across Elements */
+.review-night-mode .border-slate-100,
+.review-night-mode .border-slate-200,
+.review-night-mode .border-slate-300,
+.review-night-mode .border-outline-variant\/15,
+.review-night-mode .border-outline-variant\/40 {
+  border-color: #2a3a50 !important;
+}
+
+/* Inputs & Textareas */
+.review-night-mode input,
+.review-night-mode textarea {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+.review-night-mode input::placeholder,
+.review-night-mode textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* 5. Badges, Tags & Status Indicators (Muted WCAG AA) */
+/* Primary / Info Badges */
+.review-night-mode .bg-primary\/5,
+.review-night-mode .bg-primary\/10,
+.review-night-mode .bg-blue-50,
+.review-night-mode .bg-indigo-50 {
+  background-color: #1e3a8a !important;
+  color: #93c5fd !important;
+  border-color: #2563eb !important;
+}
+
+/* Green / Success Badges */
+.review-night-mode .bg-emerald-50,
+.review-night-mode .bg-green-50,
+.review-night-mode .bg-emerald-500\/10 {
+  background-color: #064e3b !important;
+  color: #6ee7b7 !important;
+  border-color: #059669 !important;
+}
+
+/* Yellow / Warning Badges */
+.review-night-mode .bg-amber-50,
+.review-night-mode .bg-yellow-50,
+.review-night-mode .bg-amber-500\/10 {
+  background-color: #78350f !important;
+  color: #fcd34d !important;
+  border-color: #b45309 !important;
+}
+
+/* Red / Danger Badges */
+.review-night-mode .bg-red-50,
+.review-night-mode .bg-rose-50,
+.review-night-mode .bg-red-500\/10 {
+  background-color: #7f1d1d !important;
+  color: #fca5a5 !important;
+  border-color: #b91c1c !important;
+}
+
+/* Purple / Plural Badges & Buttons */
+.review-night-mode .bg-purple-50 {
+  background-color: #3b0764 !important;
+  color: #e9d5ff !important;
+  border-color: #7e22ce !important;
+}
+
+.review-night-mode .text-purple-900,
+.review-night-mode .text-purple-800,
+.review-night-mode .text-purple-700 {
+  color: #d8b4fe !important;
+}
+
+.review-night-mode button.bg-purple-50 {
+  background-color: #3b0764 !important;
+  color: #e9d5ff !important;
+  border-color: #7e22ce !important;
+}
+
+.review-night-mode button.bg-purple-50:hover {
+  background-color: #581c87 !important;
+  color: #ffffff !important;
+}
+
+/* Volume Buttons in Night Mode */
+.review-night-mode button.bg-white\/90,
+.review-night-mode button.bg-white\/95 {
+  background-color: #252e3f !important;
+  color: #60a5fa !important;
+  border-color: #334155 !important;
+}
+
+.review-night-mode button.bg-primary\/10 {
+  background-color: rgba(37, 99, 235, 0.25) !important;
+  color: #60a5fa !important;
+  border-color: rgba(37, 99, 235, 0.35) !important;
+}
+
+/* Surface Container Buttons & Cards in Night Mode */
+.review-night-mode .bg-surface-container {
+  background-color: #1e293b !important;
+  color: #e2e8f0 !important;
+  border-color: #334155 !important;
+}
+
+.review-night-mode button.bg-surface-container:hover {
+  background-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+.review-night-mode button.bg-red-50 {
+  background-color: #450a0a !important;
+  color: #fca5a5 !important;
+  border-color: #991b1b !important;
+}
+
+.review-night-mode button.bg-red-50:hover {
+  background-color: #7f1d1d !important;
+  color: #ffffff !important;
+}
+
+/* Selected / Matched Items in Grid */
+.review-night-mode .grid button.bg-primary\/10,
+.review-night-mode .grid button.border-primary {
+  background-color: #1e3a8a !important;
+  border-color: #3b82f6 !important;
+  color: #93c5fd !important;
+}
+
+/* AI Preview Flip Cards */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+.my-flip-card-flipped {
+  transform: rotateY(180deg);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c3c6d7;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #737686;
+}
+
+/* Ultra light mode performance overrides */
+.ultra-light-mode,
+.ultra-light-mode * {
+  transition: none !important;
+  animation: none !important;
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+}
