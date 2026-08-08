@@ -1,0 +1,10 @@
+{
+  "name": "Flashcard App",
+  "description": "Interactive flashcard and language learning application with AI generation, TTS support, and database synchronization.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
